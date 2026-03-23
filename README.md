@@ -40,6 +40,14 @@ Para facilitar a vida e evitar ter que digitar comandos longos, criei um script 
     ``` 
 (Isso criará automaticamente as pastas `output_malha_200` e `plots_malha_200`)
 
+## ⚠️ Configuração Inicial (Permissões)
+
+Se você estiver usando o Linux ou WSL pela primeira vez neste projeto, os scripts `.sh` podem apresentar o erro **"Permission denied"**. Para resolver isso e permitir que os scripts funcionem, execute o seguinte comando no terminal (apenas uma vez):
+
+    ```bash
+    chmod +x *.sh
+    ```
+    
 ## 🌐 Alterar o Domínio da Simulação (`set-domain.sh`)
 
 Para testar o comportamento das equações em diferentes intervalos espaciais (ex: de -1 a 1, ou 0 a 5), utilize o script `set-domain.sh`. Ele formata automaticamente os valores para a notação científica exigida pelo Clawpack.
