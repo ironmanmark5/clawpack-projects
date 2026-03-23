@@ -1,5 +1,9 @@
 # Simulação de Advecção 1D com Clawpack
 
+## 📊 Resultados Recentes
+
+![Gráfico de Convergência](resultados/comparativo_malhas.png)
+
 Este projeto contém exemplos de advecção unidimensional. Siga as instruções abaixo para testar diferentes resoluções de malha.
 
 ## Como Alterar a Malha
@@ -41,6 +45,14 @@ Para facilitar a vida e evitar ter que digitar comandos longos, criei um script 
 ``` 
 (Isso criará automaticamente as pastas `output_malha_200` e `plots_malha_200`)
 
+#### Se quiser rodar vários em sequência, pode utilizar do loop pelo terminal!!!
+
+Exemplo:
+
+```bash
+for m in 32 64 128 256 512 1024; do ./rodar.sh $m; done
+``` 
+
 ## ⚠️ Configuração Inicial (Permissões)
 
 Se você estiver usando o Linux ou WSL pela primeira vez neste projeto, os scripts `.sh` podem apresentar o erro **"Permission denied"**. Para resolver isso e permitir que os scripts funcionem, execute o seguinte comando no terminal (apenas uma vez):
@@ -66,3 +78,4 @@ No terminal, execute o script passando o **limite inferior** e o **limite superi
 Este script apenas altera a configuração no arquivo `setrun.py`. Após definir o novo domínio, você deve rodar a simulação manualmente com os comandos make ou utilizar o script `./rodar.sh [MALHA]` para gerar os novos resultados.
 
 E também certifique-se de que a sua condição inicial (definida no `qinit.f90`) esteja dentro do intervalo de domínio escolhido, caso contrário, a onda poderá não aparecer no gráfico.
+

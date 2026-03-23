@@ -47,9 +47,9 @@ def qtrue(x,t):
 
     # 3. Gerar as ondas (Gaussiana e Pulso)
     # Dica: Se quiser automatizar os centros, podemos usar variáveis aqui também
-    q = exp(-probdata.beta * (x0 - 0.75)**2)
-    q = where(logical_and(x0 > 0.1, x0 < 0.4), q + 1, q)
     
+    q = exp(-100.0 * (x0 - 0.4)**2) / 10.0 # Nova Equação Exata 
+
     return q 
 
 #--------------------------
@@ -75,7 +75,7 @@ def setplot(plotdata=None):
     # Set up for axes in this figure:
     plotaxes = plotfigure.new_plotaxes()
     plotaxes.xlimits = 'auto'
-    plotaxes.ylimits = [-.5,1.3]
+    plotaxes.ylimits = [-0.01, 0.11] # Troquei pela escala do problema da solução inicial 
     plotaxes.title = 'q'
 
     # Set up for item on these axes:
