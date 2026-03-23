@@ -17,16 +17,29 @@ print("Parameters: u = %g, beta = %g" % (probdata.u, probdata.beta))
 
 def qtrue(x,t):
     """
-    The true solution, for comparison.  
-    Should be consistent with the initial data specified in qinit.f90.
+    Solução exata dinâmica que se adapta ao domínio do setrun.py
     """
     from numpy import mod, exp, where, logical_and
-    x0 = x - probdata.u*t
-    x0 = mod(x0, 1.)   # because of periodic boundary conditions
-    q = exp(-probdata.beta * (x0-0.75)**2)
-    q = where(logical_and(x0 > 0.1, x0 < 0.4), q+1, q)
-    return q
     
+    # 1. Descobrir o tamanho do domínio atual (L)
+    # O Clawpack salva isso no arquivo claw.data após o setrun
+    from clawpack.clawutil.data import ClawData
+    clawdata = ClawData()
+    clawdata.read('claw.data', force=True)
+    xlower = clawdata.lower[0]
+    xupper = clawdata.upper[0]
+    L = xupper - xlower  # Tamanho do domínio
+
+    # 2. Calcular a posição relativa (x0) considerando periodicidade
+    x0 = x - probdata.u * t
+    x0 = xlower + mod(x0 - xlower, L) 
+
+    # 3. Gerar as ondas (Gaussiana e Pulso)
+    # Dica: Se quiser automatizar os centros, podemos usar variáveis aqui também
+    q = exp(-probdata.beta * (x0 - 0.75)**2)
+    q = where(logical_and(x0 > 0.1, x0 < 0.4), q + 1, q)
+    
+    return q 
 
 #--------------------------
 def setplot(plotdata=None):
