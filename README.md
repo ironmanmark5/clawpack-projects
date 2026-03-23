@@ -36,18 +36,18 @@ Para facilitar a vida e evitar ter que digitar comandos longos, criei um script 
 1. Primeiro, altere o valor da malha no `setrun.py`.
 2. No terminal, execute o script passando o valor da malha como argumento:
 
-   ```bash
-   ./rodar.sh 200
-    ``` 
+```bash
+./rodar.sh 200
+``` 
 (Isso criará automaticamente as pastas `output_malha_200` e `plots_malha_200`)
 
 ## ⚠️ Configuração Inicial (Permissões)
 
 Se você estiver usando o Linux ou WSL pela primeira vez neste projeto, os scripts `.sh` podem apresentar o erro **"Permission denied"**. Para resolver isso e permitir que os scripts funcionem, execute o seguinte comando no terminal (apenas uma vez):
 
-    ```bash
-    chmod +x *.sh
-    ```
+```bash
+chmod +x *.sh
+```
 
 ## 🌐 Alterar o Domínio da Simulação (`set-domain.sh`)
 
@@ -56,9 +56,9 @@ Para testar o comportamento das equações em diferentes intervalos espaciais (e
 ### Como usar o script de domínio:
 No terminal, execute o script passando o **limite inferior** e o **limite superior** separados por espaço:
 
-    ```bash
-    ./set-domain.sh -1 1
-    ``` 
+```bash
+./set-domain.sh -1 1
+``` 
 (Isso atualizará os valores de `lower[0]` e `upper[0]` no arquivo `setrun.py` para -1.000000e+00 e 1.000000e+00)
 
 **Observação Importante:**
