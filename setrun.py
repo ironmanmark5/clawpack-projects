@@ -56,8 +56,8 @@ def setrun(claw_pkg='classic'):
     clawdata.num_dim = num_dim
     
     # Lower and upper edge of computational domain:
-    clawdata.lower[0] = 0.000000e+00          # xlower
-    clawdata.upper[0] = 1.000000e+00          # xupper
+    clawdata.lower[0] = 0.000000e+00
+    clawdata.upper[0] = 1.000000e+00
     
     # Number of grid cells:
     clawdata.num_cells[0] = 200      # mx
@@ -206,8 +206,8 @@ def setrun(claw_pkg='classic'):
     #   2 or 'periodic' => periodic (must specify this at both boundaries)
     #   3 or 'wall'     => solid wall for systems where q(2) is normal velocity
     
-    clawdata.bc_lower[0] = 'periodic'   # at xlower
-    clawdata.bc_upper[0] = 'periodic'   # at xupper
+    clawdata.bc_lower[0] = 0.000000e+00
+    clawdata.bc_upper[0] = 1.000000e+00
                   
     return rundata
 
