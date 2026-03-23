@@ -37,5 +37,22 @@ Para facilitar a vida e evitar ter que digitar comandos longos, criei um script 
 2. No terminal, execute o script passando o valor da malha como argumento:
    ```bash
    ./rodar.sh 200
-    
+    ``` 
 (Isso criará automaticamente as pastas `output_malha_200` e `plots_malha_200`)
+
+## 🌐 Alterar o Domínio da Simulação (`set-domain.sh`)
+
+Para testar o comportamento das equações em diferentes intervalos espaciais (ex: de -1 a 1, ou 0 a 5), utilize o script `set-domain.sh`. Ele formata automaticamente os valores para a notação científica exigida pelo Clawpack.
+
+### Como usar o script de domínio:
+No terminal, execute o script passando o **limite inferior** e o **limite superior** separados por espaço:
+    ```bash
+    ./set-domain.sh -1 1
+    ``` 
+(Isso atualizará os valores de `lower[0]` e `upper[0]` no arquivo `setrun.py` para -1.000000e+00 e 1.000000e+00)
+
+**Observação Importante:**
+
+Este script apenas altera a configuração no arquivo `setrun.py`. Após definir o novo domínio, você deve rodar a simulação manualmente com os comandos make ou utilizar o script `./rodar.sh [MALHA]` para gerar os novos resultados.
+
+E também certifique-se de que a sua condição inicial (definida no `qinit.f90`) esteja dentro do intervalo de domínio escolhido, caso contrário, a onda poderá não aparecer no gráfico.
