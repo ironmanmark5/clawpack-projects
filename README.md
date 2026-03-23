@@ -35,6 +35,7 @@ Para facilitar a vida e evitar ter que digitar comandos longos, criei um script 
 ### Como usar o script:
 1. Primeiro, altere o valor da malha no `setrun.py`.
 2. No terminal, execute o script passando o valor da malha como argumento:
+
    ```bash
    ./rodar.sh 200
     ``` 
@@ -47,13 +48,14 @@ Se você estiver usando o Linux ou WSL pela primeira vez neste projeto, os scrip
     ```bash
     chmod +x *.sh
     ```
-    
+
 ## 🌐 Alterar o Domínio da Simulação (`set-domain.sh`)
 
 Para testar o comportamento das equações em diferentes intervalos espaciais (ex: de -1 a 1, ou 0 a 5), utilize o script `set-domain.sh`. Ele formata automaticamente os valores para a notação científica exigida pelo Clawpack.
 
 ### Como usar o script de domínio:
 No terminal, execute o script passando o **limite inferior** e o **limite superior** separados por espaço:
+
     ```bash
     ./set-domain.sh -1 1
     ``` 
