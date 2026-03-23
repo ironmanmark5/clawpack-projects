@@ -20,14 +20,25 @@ def qtrue(x,t):
     Solução exata dinâmica que se adapta ao domínio do setrun.py
     """
     from numpy import mod, exp, where, logical_and
-    
+    import os
+
     # 1. Descobrir o tamanho do domínio atual (L)
     # O Clawpack salva isso no arquivo claw.data após o setrun
+
     from clawpack.clawutil.data import ClawData
     clawdata = ClawData()
-    clawdata.read('claw.data', force=True)
-    xlower = clawdata.lower[0]
-    xupper = clawdata.upper[0]
+
+    # Tenta ler na pasta atual, se não achar, tenta na pasta 'pai'
+    if os.path.exists('claw.data'):
+        path_data = 'claw.data'
+    else:
+        # Sobe um nível para encontrar o arquivo na raiz do projeto
+        path_data = os.path.abspath(os.path.join(os.getcwd(), '..', 'claw.data'))
+    
+    clawdata.read(path_data, force=True)
+
+    xlower = clawdata.lower
+    xupper = clawdata.upper
     L = xupper - xlower  # Tamanho do domínio
 
     # 2. Calcular a posição relativa (x0) considerando periodicidade

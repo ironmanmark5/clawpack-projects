@@ -17,9 +17,9 @@ SUP_FORM=$(printf "%.6e" $SUP)
 echo "--- Alterando Domínio para [$INF_FORM : $SUP_FORM] no setrun.py ---"
 
 # SED para o limite Inferior
-sed -i "s/lower\[0\] = .*/lower\[0\] = $INF_FORM/" setrun.py
+sed -i "s/clawdata.lower\[0\] = .*/clawdata.lower\[0\] = $INF_FORM/" setrun.py
 
 # SED para o limite Superior
-sed -i "s/upper\[0\] = .*/upper\[0\] = $SUP_FORM/" setrun.py
+sed -i "s/clawdata.upper\[0\] = .*/clawdata.upper\[0\] = $SUP_FORM/" setrun.py
 
 echo "--- Finalizado! ---"

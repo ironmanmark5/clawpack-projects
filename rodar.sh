@@ -14,7 +14,8 @@ echo "--- Alterando a malha para $MALHA no setrun.py ---"
 
 # Ajuste do SED para o seu arquivo específico:
 # Ele procura por 'num_cells[0] = ' seguido de números e troca pelo novo valor
-sed -i "s/num_cells\[0\] = [0-9]*/num_cells[0] = $MALHA/" setrun.py
+sed -i "s/clawdata.num_cells\[0\] = .*/clawdata.num_cells\[0\] = $MALHA/" setrun.py
+
 
 echo "--- Iniciando simulação ---"
 make .exe
