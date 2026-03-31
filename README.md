@@ -2,7 +2,7 @@
 
 ## 📊 Resultados Recentes
 
-![Gráfico de Convergência](resultados/comparativo_malhas.png)
+![Gráfico de Convergência](resultados/comparativo_malhas2.png)
 
 Este projeto contém exemplos de advecção unidimensional. Siga as instruções abaixo para testar diferentes resoluções de malha.
 
