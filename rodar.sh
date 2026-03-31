@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Setando variáveis de Ambiente!
+export CLAW=$(realpath ../../../) 
+export PYTHONPATH=$CLAW:$PYTHONPATH
+
 if [ -z "$1" ]
   then
     echo "Erro: Digite o número da malha. Exemplo: ./rodar.sh 200"

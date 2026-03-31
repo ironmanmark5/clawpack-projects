@@ -34,7 +34,7 @@ for m in mesh_sizes:
         print(f"Aviso: Pasta {path} não encontrada.")
 
 # Plotar a Solução Exata para comparação (Linha contínua)
-x_fino = np.linspace(x_lower, x_upper, 1000)
+x_fino = np.linspace(x_lower, x_upper, 1600)
 plt.plot(x_fino, q_exata(x_fino, t_final), 'r--', linewidth=2, label='Solução Exata')
 
 # Estética do Gráfico
@@ -49,6 +49,6 @@ plt.grid(alpha=0.3)
 # Salvar o resultado
 os.makedirs('resultados', exist_ok=True) # Cria pasta 'resultados' se ela não existir
 
-plt.savefig('resultados/comparativo_malhas.png', dpi=300)
+plt.savefig('resultados/comparativo_malhas4.png', dpi=1000)
 print("Sucesso! O gráfico 'comparativo_malhas.png' foi gerado.")
 plt.show()
